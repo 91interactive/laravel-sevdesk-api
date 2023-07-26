@@ -43,7 +43,8 @@ class ApiClient
             $parameters['token'] = $this->getToken();
             $response = $this->getClient()->{$httpMethod}('api/v1/' . $url, ['query' => $parameters]);
             $responseBody = json_decode((string)$response->getBody(), true);
-            return $responseBody['objects'];
+            return $responseBody;
+            // return $responseBody['objects'];
         } catch (BadResponseException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
             if (array_key_exists('error', $response)) {
@@ -89,6 +90,7 @@ class ApiClient
 
     const INVOICE = 'Invoice';
     const CREDIT_NOTE = 'CreditNote';
+    const ORDER = 'Order';
 
     public function getNextSequence(string $objectType = self::INVOICE)
     {

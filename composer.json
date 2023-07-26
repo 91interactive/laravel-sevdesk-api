@@ -1,14 +1,19 @@
 {
-    "name": "exlo89/laravel-sevdesk-api",
+    "name": "91interactive/laravel-sevdesk-api",
     "description": "A helpful Sevdesk API client for Laravel.",
     "authors": [
         {
             "name": "Martin Appelmann",
             "email": "hello@martin-appelmann.de",
             "role": "Developer"
+        },
+        {
+            "name": "Ruben Müller",
+            "email": "mueller@91interactive.com",
+            "role": "Developer"
         }
     ],
-    "homepage": "https://github.com/exlo89/laravel-sevdesk-api",
+    "homepage": "https://github.com/91interactive/laravel-sevdesk-api",
     "license": "MIT",
     "keywords": [
         "php",

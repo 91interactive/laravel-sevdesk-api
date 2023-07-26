@@ -19,4 +19,7 @@ class Routes
     const CREATE_INVOICE = 'Invoice/Factory/saveInvoice';
     const STATIC_COUNTRY = 'StaticCountry';
     const SEQUENCE = 'SevSequence/Factory/getByType';
+	const ORDER = 'Order';
+	const CREATE_ORDER = 'Order/Factory/saveOrder';
+	
 }
