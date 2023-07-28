@@ -30,7 +30,7 @@ class Contact extends ApiClient
     const PARTNER = 4;
     const PROSPECT_CUSTOMER = 28;
 
-    const DEFAULT_LIMIT = 1000;
+    const DEFAULT_LIMIT = 999999;
 
     // =========================== all ====================================
 
@@ -200,7 +200,7 @@ class Contact extends ApiClient
     public function createSupplier(string $organisationName, array $parameters = []): SevContact
     {
         $parameters['name'] = $organisationName;
-        return SevContact::make($this->create(self::SUPPLIER, $parameters));
+        return SevContact::make($this->create(self::SUPPLIER, $parameters)['objects']);
     }
 
     /**
@@ -213,7 +213,7 @@ class Contact extends ApiClient
     public function createCustomer(string $organisationName, array $parameters = []): SevContact
     {
         $parameters['name'] = $organisationName;
-        return SevContact::make($this->create(self::CUSTOMER, $parameters));
+        return SevContact::make($this->create(self::CUSTOMER, $parameters)['objects']);
     }
 
     /**
@@ -226,7 +226,7 @@ class Contact extends ApiClient
     public function createPartner(string $organisationName, array $parameters = []): SevContact
     {
         $parameters['name'] = $organisationName;
-        return SevContact::make($this->create(self::PARTNER, $parameters));
+        return SevContact::make($this->create(self::PARTNER, $parameters)['objects']);
     }
 
     /**
@@ -239,7 +239,7 @@ class Contact extends ApiClient
     public function createProspectCustomer(string $organisationName, array $parameters = []): SevContact
     {
         $parameters['name'] = $organisationName;
-        return SevContact::make($this->create(self::PROSPECT_CUSTOMER, $parameters));
+        return SevContact::make($this->create(self::PROSPECT_CUSTOMER, $parameters)['objects']);
     }
 
     /**
@@ -253,7 +253,7 @@ class Contact extends ApiClient
     public function createCustom(string $organisationName, int $contactCategory, array $parameters = []): SevContact
     {
         $parameters['name'] = $organisationName;
-        return SevContact::make($this->create($contactCategory, $parameters));
+        return SevContact::make($this->create($contactCategory, $parameters)['objects']);
     }
 
     // ========================== update ==================================
