@@ -48,7 +48,7 @@ class CommunicationWay extends ApiClient
      */
     public function all(): Collection
     {
-        return Collection::make($this->_get(Routes::COMMUNICATION_WAY)['objects']);
+        return Collection::make($this->_get(Routes::COMMUNICATION_WAY));
     }
 
     /**
