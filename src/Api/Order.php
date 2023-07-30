@@ -118,6 +118,17 @@ class Order extends ApiClient
 		return Collection::make($this->_get(Routes::ORDER, ['startDate' => $timestamp]));
 	}
 
+    /**
+     * Return a single order.
+     *
+     * @param $orderId
+     * @return mixed
+     */
+    public function get($orderId): SevOrder
+    {
+        return SevOrder::make($this->_get(Routes::ORDER . '/' . $orderId)['objects'][0]);
+    }
+
 	// =========================== create ====================================
 
 	/**
