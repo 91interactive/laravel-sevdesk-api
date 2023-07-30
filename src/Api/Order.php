@@ -118,16 +118,16 @@ class Order extends ApiClient
 		return Collection::make($this->_get(Routes::ORDER, ['startDate' => $timestamp]));
 	}
 
-    /**
-     * Return a single order.
-     *
-     * @param $orderId
-     * @return mixed
-     */
-    public function get($orderId): SevOrder
-    {
-        return SevOrder::make($this->_get(Routes::ORDER . '/' . $orderId)['objects'][0]);
-    }
+	/**
+	 * Return a single order.
+	 *
+	 * @param $orderId
+	 * @return mixed
+	 */
+	public function get($orderId): SevOrder
+	{
+		return SevOrder::make($this->_get(Routes::ORDER . '/' . $orderId)['objects'][0]);
+	}
 
 	// =========================== create ====================================
 
@@ -277,7 +277,7 @@ class Order extends ApiClient
 	 */
 	public function download($orderId, $preview = false)
 	{
-		$response = $this->_get(Routes::ORDER . '/' . $orderId . '/getPdf', ["preventSendBy" => $preview]);
+		$response = $this->_get(Routes::ORDER . '/' . $orderId . '/getPdf', ["preventSendBy" => $preview])['objects'];
 		$file = $response['filename'];
 		file_put_contents($file, base64_decode($response['content']));
 
@@ -292,6 +292,17 @@ class Order extends ApiClient
 			readfile($file);
 			exit();
 		}
+	}
+
+	/**
+	 * Returns raw pdf object of the giving order id.
+	 *
+	 * @return void
+	 */
+	public function getRawPdfData($orderId, $preview = true)
+	{
+		$response = $this->_get(Routes::ORDER . '/' . $orderId . '/getPdf', ["preventSendBy" => $preview])['objects'];
+		return $response;
 	}
 
 	/**
