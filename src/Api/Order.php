@@ -210,11 +210,14 @@ class Order extends ApiClient
 					'price' => $item['price'],
 					'name' => $item['name'],
 					'text' => $item['text'] ?? '',
-					'taxRate' => $configs['taxRate'],
+					'taxRate' => $item['taxRate'],
 					'unity' => [
-						'id' => 1,
+						'id' => $item['unity'] ?? 1,
 						'objectName' => 'Unity',
-					]
+					],
+					'optional' => $item['optional'] ?? false,
+					'discountedValue' => $item['discount'] ?? 0,
+					'isPercentage' => $item['isPercentage']
 
 				];
 			}
