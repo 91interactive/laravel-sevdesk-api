@@ -21,5 +21,6 @@ class Routes
     const SEQUENCE = 'SevSequence/Factory/getByType';
 	const ORDER = 'Order';
 	const CREATE_ORDER = 'Order/Factory/saveOrder';
+    const TEXT_TEMPLATE = 'TextTemplate';
 	
 }
