@@ -207,14 +207,14 @@ class Order extends ApiClient
 					'mapAll' => 'true',
 					'quantity' => $item['quantity'] ?? 1,
 					'part' => ['id' => $item['part_id'], 'objectName' => "Part"],
-					// 'price' => $item['price'],
-					// 'name' => $item['name'],
-					// 'text' => $item['text'] ?? '',
-					// 'taxRate' => $configs['taxRate'],
-					// 'unity' => [
-					//     'id' => 1,
-					//     'objectName' => 'Unity',
-					// ]
+					'price' => $item['price'],
+					'name' => $item['name'],
+					'text' => $item['text'] ?? '',
+					'taxRate' => $configs['taxRate'],
+					'unity' => [
+					    'id' => 1,
+					    'objectName' => 'Unity',
+					]
 
 				];
 			}
