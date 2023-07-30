@@ -131,7 +131,7 @@ class Order extends ApiClient
 	 */
 	public function create($contactId, $items, array $parameters = [])
 	{
-		return SevOrder::make($this->_post(Routes::CREATE_ORDER, $this->getParameters($contactId, $items, $parameters))['order']);
+		return SevOrder::make($this->_post(Routes::CREATE_ORDER, $this->getParameters($contactId, $items, $parameters))['objects']['order']);
 	}
 
 	/**

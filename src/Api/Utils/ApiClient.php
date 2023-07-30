@@ -94,7 +94,7 @@ class ApiClient
 
     public function getNextSequence(string $objectType = self::INVOICE)
     {
-        $sequence = $this->_get(Routes::SEQUENCE, ['objectType' => $objectType]);
+        $sequence = $this->_get(Routes::SEQUENCE, ['objectType' => $objectType])['objects'];
         return str_replace('%NUMBER', $sequence['nextSequence'], $sequence['format']);
     }
 }
