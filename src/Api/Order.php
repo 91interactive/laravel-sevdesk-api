@@ -212,8 +212,8 @@ class Order extends ApiClient
 					'text' => $item['text'] ?? '',
 					'taxRate' => $configs['taxRate'],
 					'unity' => [
-					    'id' => 1,
-					    'objectName' => 'Unity',
+						'id' => 1,
+						'objectName' => 'Unity',
 					]
 
 				];
@@ -261,7 +261,11 @@ class Order extends ApiClient
 				'orderType' => $parameters['orderType'],
 				'currency' => $configs['currency'],
 				'mapAll' => 'true',
-				'version' => 0 // rm: Version of the order. Can be used if you have multiple drafts for the same order. Should start with 0
+				'version' => 0, // rm: Version of the order. Can be used if you have multiple drafts for the same order. Should start with 0
+				'address' => $parameters['address'],
+				'headText' => $parameters['headText'],
+				'footText' => $parameters['footText'],
+
 			],
 			'orderPosSave' => $this->getOrderItems($items, $configs)
 		];
