@@ -80,7 +80,7 @@ class AccountingContact extends ApiClient
                     "id" => $contactId,
                     "objectName" => "Contact"
                 ]
-            ])
+            ])['objects']
         );
     }
 

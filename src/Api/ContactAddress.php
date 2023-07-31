@@ -63,6 +63,6 @@ class ContactAddress extends ApiClient
             "id" => Country::GERMANY,
             "objectName" => "StaticCountry",
         ];
-        return SevContactAddress::make($this->_post(Routes::CONTACT_ADDRESS, $parameters));
+        return SevContactAddress::make($this->_post(Routes::CONTACT_ADDRESS, $parameters)['objects']);
     }
 }
