@@ -252,7 +252,7 @@ class Order extends ApiClient
 					'id' => $contactId,
 					'objectName' => 'Contact'
 				],
-				'header' => 'Angebot NR. ' . $nextSequence, //TODO (Martin): find better solution to generate header
+				'header' => $parameters['header'] ??'Angebot NR. ' . $nextSequence, //TODO (Martin): find better solution to generate header
 				'orderNumber' => $nextSequence,
 				'orderDate' => date('Y-m-d H:i:s'),
 				'discount' => 0,
@@ -353,7 +353,7 @@ class Order extends ApiClient
 	{
 		return self::sendOrder($orderId, ORDER::SEND_BY_PDF);
 	}
-	
+
 	/**
 	 * send order by mail
 	 *
