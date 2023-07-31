@@ -96,9 +96,9 @@ class ApiClient
 	const CREDIT_NOTE = 'CreditNote';
 	const ORDER = 'Order';
 
-	public function getNextSequence(string $objectType = self::INVOICE)
+	public function getNextSequence(string $objectType, string $type)
 	{
-		$sequence = $this->_get(Routes::SEQUENCE, ['objectType' => $objectType])['objects'];
+		$sequence = $this->_get(Routes::SEQUENCE, ['objectType' => $objectType, 'type' => $type])['objects'];
 		return str_replace('%NUMBER', $sequence['nextSequence'], $sequence['format']);
 	}
 }

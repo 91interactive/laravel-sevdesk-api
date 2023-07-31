@@ -237,7 +237,7 @@ class Order extends ApiClient
 		// validate config values
 		$configs = $this->getConfigs();
 		// fetch and format next order number
-		$nextSequence = $this->getNextSequence(ApiClient::ORDER);
+		$nextSequence = $this->getNextSequence(ApiClient::ORDER, self::ESTIMATE_OR_PROPOSAL);
 		$requiredParameters = [
 			'order' => [
 				'objectName' => 'Order',
