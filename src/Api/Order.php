@@ -213,7 +213,7 @@ class Order extends ApiClient
 					'objectName' => 'OrderPos',
 					'mapAll' => 'true',
 					'quantity' => $item['quantity'] ?? 1,
-					'part' => ['id' => $item['part_id'], 'objectName' => "Part"],
+					...($item['part_id'] ?? null ? ['part' => ['id' => $item['part_id'], 'objectName' => "Part"]] : []),
 					'price' => $item['price'],
 					'name' => $item['name'],
 					'text' => $item['text'] ?? '',
@@ -252,7 +252,7 @@ class Order extends ApiClient
 					'id' => $contactId,
 					'objectName' => 'Contact'
 				],
-				'header' => $parameters['header'] ??'Angebot NR. ' . $nextSequence, //TODO (Martin): find better solution to generate header
+				'header' => $parameters['header'] ?? 'Angebot NR. ' . $nextSequence, //TODO (Martin): find better solution to generate header
 				'orderNumber' => $nextSequence,
 				'orderDate' => date('Y-m-d H:i:s'),
 				'discount' => 0,
