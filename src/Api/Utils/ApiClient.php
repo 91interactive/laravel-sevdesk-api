@@ -41,10 +41,12 @@ class ApiClient
 	{
 		try {
 			$parameters['token'] = $this->getToken();
-			if ($httpMethod === 'get')
+			if ($httpMethod === 'get') {
 				$response = $this->getClient()->{$httpMethod}('api/v1/' . $url, ['query' => $parameters]);
-			else
-				$response = $this->getClient()->{$httpMethod}('api/v1/' . $url, ['form_params' => $parameters]);
+			} else {
+				$parametersToken = ['token' => $this->getToken()];
+				$response = $this->getClient()->{$httpMethod}('api/v1/' . $url, ['form_params' => $parameters, 'query' => $parametersToken]);
+			}
 			$responseBody = json_decode((string)$response->getBody(), true);
 			return $responseBody;
 			// return $responseBody['objects'];
