@@ -38,7 +38,7 @@ class Order extends ApiClient
 	const ORDER_CONFIRMATION = "AB";
 	const DELIVERY_NOTE = "LI";
 
-/**
+	/**
 	 * SEND_BY types
 	 */
 	const SEND_BY_PDF = "VPDF";
@@ -332,15 +332,55 @@ class Order extends ApiClient
 			'text' => $text,
 		]);
 	}
-	
+
 	/**
-	 * Save order.
+	 * send order.
 	 *
 	 * @return void
 	 */
-	public function sendOrder($orderId, $sendType = ORDER::SEND_BY_PDF)
+	private function sendOrder($orderId, $sendType = ORDER::SEND_BY_PDF)
 	{
 		$response = $this->_put(Routes::ORDER . '/' . $orderId . '/sendBy', ["sendType" => $sendType, 'sendDraft' => false])['objects'];
 		return $response;
+	}
+
+	/**
+	 * download order as PDF
+	 *
+	 * @return void
+	 */
+	public function sendOrderByPDF($orderId)
+	{
+		return self::sendOrder($orderId, ORDER::SEND_BY_PDF);
+	}
+	
+	/**
+	 * send order by mail
+	 *
+	 * @return void
+	 */
+	public function sendOrderByMail($orderId)
+	{
+		return self::sendOrder($orderId, ORDER::SEND_BY_MAIL);
+	}
+
+	/**
+	 * download order by postal service
+	 *
+	 * @return void
+	 */
+	public function sendOrderByPostalService($orderId)
+	{
+		return self::sendOrder($orderId, ORDER::SEND_BY_POSTAL);
+	}
+
+	/**
+	 * print order 
+	 *
+	 * @return void
+	 */
+	public function sendOrderByPrint($orderId)
+	{
+		return self::sendOrder($orderId, ORDER::SEND_BY_PRINT);
 	}
 }
