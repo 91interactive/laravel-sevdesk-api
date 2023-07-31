@@ -32,12 +32,19 @@ class Order extends ApiClient
 	const CALCULATED = 1000;
 
 	/**
-	 * Order type
+	 * Order types
 	 */
 	const ESTIMATE_OR_PROPOSAL = "AN";
 	const ORDER_CONFIRMATION = "AB";
 	const DELIVERY_NOTE = "LI";
 
+/**
+	 * SEND_BY types
+	 */
+	const SEND_BY_PDF = "VPDF";
+	const SEND_BY_PRINT = "VPR";
+	const SEND_BY_POSTAL = "VP";
+	const SEND_BY_MAIL = "VM";
 
 	const DEFAULT_LIMIT = 9999;
 
@@ -324,5 +331,16 @@ class Order extends ApiClient
 			'subject' => $subject,
 			'text' => $text,
 		]);
+	}
+	
+	/**
+	 * Save order.
+	 *
+	 * @return void
+	 */
+	public function sendOrder($orderId, $sendType = ORDER::SEND_BY_PDF)
+	{
+		$response = $this->_put(Routes::ORDER . '/' . $orderId . '/sendBy', ["sendType" => $sendType, 'sendDraft' => false])['objects'];
+		return $response;
 	}
 }
