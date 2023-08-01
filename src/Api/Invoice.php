@@ -321,4 +321,17 @@ class Invoice extends ApiClient
 			'partialType' => $partialType,
 		])['objects'];
 	}
+
+	/**
+	 * update invoice.
+	 *
+	 * @param $invoiceId
+	 * @param array $parameters
+	 * @return mixed
+	 * @throws Exception
+	 */
+	public function update($invoiceId, array $parameters)
+	{
+		return SevInvoice::make($this->_put(Routes::INVOICE . '/'. $invoiceId, $parameters)['objects']);
+	}
 }
