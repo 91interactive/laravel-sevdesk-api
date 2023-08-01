@@ -280,6 +280,16 @@ class Invoice extends ApiClient
 	}
 
 	/**
+	 * Returns raw pdf object of the giving invoice id.
+	 *
+	 * @return void
+	 */
+	public function getRawPdfData($invoiceId, $preview = true)
+	{
+		$response = $this->_get(Routes::INVOICE . '/' . $invoiceId . '/getPdf', ["preventSendBy" => $preview])['objects'];
+		return $response;
+	}
+	/**
 	 * Send invoice per email.
 	 *
 	 * @return void
