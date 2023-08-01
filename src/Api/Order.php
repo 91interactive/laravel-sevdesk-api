@@ -383,4 +383,22 @@ class Order extends ApiClient
 	{
 		return self::sendOrder($orderId, ORDER::SEND_BY_PRINT);
 	}
+
+	public function createContractNoteFromOrder($orderId)
+	{
+		return $this->_get(Routes::ORDER . '/Factory/createContractNoteFromOrder', ['order' => ['id' => $orderId, 'objectName' => 'Order']])['objects'];
+	}
+	private function changeStatus($orderId, $status)
+	{
+		$response = $this->_put(Routes::ORDER . '/' . $orderId . '/changeStatus', ["value" => $status])['objects'];
+		return $response;
+	}
+	public function acceptOrder($orderId)
+	{
+		return self::changeStatus($orderId, Order::ACCEPTED);
+	}
+	public function rejectOrder($orderId)
+	{
+		return self::changeStatus($orderId, Order::REJECTED_OR_CANCELLED);
+	}
 }
