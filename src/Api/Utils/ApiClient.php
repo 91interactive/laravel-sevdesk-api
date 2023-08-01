@@ -103,4 +103,10 @@ class ApiClient
 		$sequence = $this->_get(Routes::SEQUENCE, ['objectType' => $objectType, 'type' => $type])['objects'];
 		return str_replace('%NUMBER', $sequence['nextSequence'], $sequence['format']);
 	}
+
+	public function getNextOrderNumber(string $type, bool $useNextNumber)
+	{
+		$sequence = $this->_get(Routes::ORDER . '/Factory/getNextOrderNumber', ['orderType' => $type, 'useNextNumber' => $useNextNumber])['objects'];
+		return $sequence;
+	}
 }

@@ -18,6 +18,7 @@ class SevOrder extends Model
         'additionalInformation',
         'propertyIsEInvoice',
         'invoiceNumber',
+        'orderNumber',
         'create',
         'update',
         'invoiceDate',
