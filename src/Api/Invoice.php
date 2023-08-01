@@ -305,7 +305,7 @@ class Invoice extends ApiClient
 	public function createInvoiceFromOrder($orderId, $type, $amount, $partialType)
 	{
 		return $this->_post(Routes::INVOICE . '/Factory/createInvoiceFromOrder', [
-			'orderId' => ['id' => $orderId, 'objectName' => 'Order'],
+			'order' => ['id' => $orderId, 'objectName' => 'Order'],
 			'type' => $type,
 			'amount' => $amount,
 			'partialType' => $partialType,
