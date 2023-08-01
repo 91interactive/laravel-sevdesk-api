@@ -309,6 +309,6 @@ class Invoice extends ApiClient
 			'type' => $type,
 			'amount' => $amount,
 			'partialType' => $partialType,
-		]);
+		])['objects'];
 	}
 }
