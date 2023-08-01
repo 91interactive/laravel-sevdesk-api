@@ -386,7 +386,7 @@ class Order extends ApiClient
 
 	public function createContractNoteFromOrder($orderId)
 	{
-		return $this->_get(Routes::ORDER . '/Factory/createContractNoteFromOrder', ['order' => ['id' => $orderId, 'objectName' => 'Order']])['objects'];
+		return $this->_post(Routes::ORDER . '/Factory/createContractNoteFromOrder', ['order' => ['id' => $orderId, 'objectName' => 'Order']])['objects'];
 	}
 	private function changeStatus($orderId, $status)
 	{
