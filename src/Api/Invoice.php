@@ -200,8 +200,8 @@ class Invoice extends ApiClient
 					'unity' => [
 						'id' => 1,
 						'objectName' => 'Unity',
-					]
-
+					],
+					'discount' => $item['discount'],
 				];
 			}
 		}
