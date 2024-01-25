@@ -129,7 +129,7 @@ class Invoice extends ApiClient
 	 */
 	public function create($contactId, $items, array $parameters = [])
 	{
-		return SevInvoice::make($this->_post(Routes::CREATE_INVOICE, $this->getParameters($contactId, $items, $parameters))['invoice']);
+		return SevInvoice::make($this->_post(Routes::CREATE_INVOICE, $this->getParameters($contactId, $items, $parameters))['objects']['invoice']);
 	}
 
 	/**
