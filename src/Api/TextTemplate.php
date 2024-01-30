@@ -31,9 +31,9 @@ class TextTemplate extends ApiClient
     /**
      * Return a single text template.
      *
-     * @param $category
-     * @param $objectType
-     * @param $textType
+     * @param $category (DOCUMENT, MAIL, LETTER?)
+     * @param $objectType (ALL, AN, AB?, MA, RE, PAYMENT_CONFIRMATION, ...)
+     * @param $textType (TEXT, FOOT, HEAD, ...)
      * @return mixed
      */
     public function get($category, $objectType, $textType)

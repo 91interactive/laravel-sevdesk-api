@@ -78,7 +78,8 @@ class SevInvoice extends Model
         'sumDiscountNet',
         'sumDiscountGross',
         'sumDiscountNetForeignCurrency',
-        'sumDiscountGrossForeignCurrency'
+        'sumDiscountGrossForeignCurrency',
+        'origin',
     ];
 
     /**
